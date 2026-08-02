@@ -281,4 +281,5 @@ return [
     "kwpay" => "KWPAY",
     "apay" => "APAY",
     "tp88pay" => "TP88PAY",
+    "z9pay" => "Z9PAY",
 ];
