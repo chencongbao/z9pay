@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "iconfont";
+  src: url('/static/iconfont/iconfont.ttf?t=444444') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-dailiren:before {
+  content: "\e61b";
+}
+
+.icon-erweima:before {
+  content: "\e73b";
+}
+
+.icon-QRcode:before {
+  content: "\e708";
+}
+
+.icon-xiangxia:before {
+  content: "\e600";
+}
+
+.icon-jia:before {
+  content: "\e6cc";
+}
+
+.icon-fuzhi:before {
+  content: "\e618";
+}
+
+.icon-wifi:before {
+  content: "\e61c";
+}
