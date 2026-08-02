@@ -1,0 +1,26 @@
+<?php
+
+return [
+    "apps.title.cny" => "Nhân dân tệ",
+    "apps.title.vnd" => "Tiền Việt Nam",
+    "apps.title.inr" => "Rupee Ấn Độ",
+    "apps.title.id" => "Name",
+    "apps.title.php" => "Đồng peso",
+    "apps.title.thb" => "Name",
+    "apps.title.myr" => "Name",
+    "apps.title.bdt" => "Viet Nam",
+    "apps.title.pkr" => "Name",
+    "apps.title.try" => "Lira Thổ Nhĩ Kỳ",
+    "apps.title.brl" => "Name",
+    "apps.title.hk" => "Đô la Hồng Kông",
+    "apps.title.mxn" => "Name",
+    "apps.title.mmk" => "Name",
+    "apps.title.jpy" => "Yên Nhật",
+    "api.home.title" => "Danh sách giao diện",
+    "api.depositsindex.title" => "Đặt hàng thay",
+    "api.depositsquery.title" => "Truy vấn thu hộ",
+    "api.transfersindex.title" => "Đặt hàng thay thế",
+    "api.transfersquery.title" => "Yêu cầu thanh toán",
+    "api.balance.title" => "Số dư yêu cầu",
+    "api.contenttype.desc" => "Loại phương tiện yêu cầu",
+];

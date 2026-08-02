@@ -1,0 +1,46 @@
+<?php
+return [
+   "labels" => [
+       "set_login_ip" => "Vui lòng cấu hình whitelist IP đăng nhập",
+       "reset_success" => "Đặt lại thành công",
+       "holder_name_tip" => "Dòng :k 【holder_name】 không được để trống",
+       "card_no_tip" => "Dòng :k 【card_no】 không được để trống",
+       "amount_tip_1" => "Dòng :k 【amount】 không được để trống",
+       "amount_tip_2" => "Dòng :k 【amount】 phải lớn hơn 0",
+       "bank_code_tip" => "Dòng :k 【bank_code】 không được để trống",
+       "bank_code_tip_2" => "Dòng :k 【bank_code】 không tồn tại",
+       "bank_branch_tip" => "Dòng :k 【bank_branch】 không được để trống, vui lòng nhập IFSC Ấn Độ",
+       "data_empty" => "Dữ liệu quyết toán trống, vui lòng gửi lại",
+       "balance_insufficient" => "Số dư tài khoản không đủ",
+       "settlement_submit_success" => "Gửi lệnh quyết toán thành công",
+       "input_password" => "Vui lòng nhập mật khẩu",
+       "current_login_password" => "Mật khẩu đăng nhập hiện tại",
+       "current_login_password_required" => "Mật khẩu đăng nhập hiện tại là bắt buộc",
+       "current_login_password_error" => "Mật khẩu đăng nhập hiện tại không chính xác",
+       "update_success" => "Cập nhật thành công",
+       "password_required" => "Mật khẩu mới là bắt buộc",
+       "password_min" => "Mật khẩu phải có ít nhất 6 ký tự",
+       "password_max" => "Mật khẩu không được vượt quá 50 ký tự",
+       "password_confirm_required" => "Mật khẩu xác nhận là bắt buộc",
+       "password_confirm_password" => "Mật khẩu xác nhận không khớp"
+   ],
+    "fields" => [
+        "illegal_operation" => "Thao tác không hợp lệ",
+        "set_login_white_ip" => "Vui lòng cấu hình whitelist IP rút tiền",
+        "none_login_white_ip" => "IP gửi yêu cầu không nằm trong whitelist",
+        "amount_password_error" => "Mật khẩu quỹ không chính xác",
+        "bank_name_not_empty" => "Tên ngân hàng không được để trống",
+        "bank_branch_not_empty" => "IFSC Ấn Độ không được để trống",
+        "amount_glt_zero" => "Số tiền quyết toán phải lớn hơn 0",
+        "none_set_transfer_rate" => "Chưa cấu hình tỷ lệ kênh thanh toán hộ",
+        "none_find_transfer_rate" => "Không tìm thấy tỷ lệ kênh phù hợp",
+        "batch_upload_data" => "Vui lòng tải lên dữ liệu EXCEL hàng loạt",
+        "batch_upload_data_empty" => "Không phân tích được dữ liệu quyết toán liên quan",
+        "upload_forbidden" => "Bạn không có quyền thao tác với tệp đã tải lên này",
+        "upload_file_expired" => "Tệp đã tải lên đã hết hạn, vui lòng tải lên lại",
+        "upload_invalid_file" => "Tệp tải lên không hợp lệ, vui lòng tải lên lại",
+        "upload_file_too_large" => "Tệp tải lên không được vượt quá 10MB",
+        "upload_invalid_file_type" => "Chỉ cho phép tệp XLSX hợp lệ",
+        "reset_google_2fa_code" => "Đặt lại mã xác minh Google"
+    ]
+];

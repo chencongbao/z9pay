@@ -1,0 +1,46 @@
+<?php
+return [
+   "labels" => [
+       "set_login_ip" => "Please set login whitelist",
+       "reset_success" => "Reset Successful",
+       "holder_name_tip" => "Row :k 【holder_name】 cannot be empty",
+       "card_no_tip" => "Row :k 【card_no】 cannot be empty",
+       "amount_tip_1" => "Row :k 【amount】 cannot be empty",
+       "amount_tip_2" => "Row :k 【amount】 must be greater than 0",
+       "bank_code_tip" => "Row :k 【bank_code】 cannot be empty",
+       "bank_code_tip_2" => "Row :k 【bank_code】 does not exist",
+       "bank_branch_tip" => "Row :k 【bank_branch】 cannot be empty, please fill in India IFSC",
+       "data_empty" => "Settlement data is empty, please resubmit",
+       "balance_insufficient" => "Insufficient account balance",
+       "settlement_submit_success" => "Settlement order submitted successfully",
+       "input_password" => "Please enter password",
+       "current_login_password" => "Current login password",
+       "current_login_password_required" => "Current login password is required",
+       "current_login_password_error" => "Current login password is incorrect",
+       "update_success" => "Update successful",
+       "password_required" => "New password is required",
+       "password_min" => "Password must be at least 6 characters",
+       "password_max" => "Password cannot exceed 50 characters",
+       "password_confirm_required" => "Confirm password is required",
+       "password_confirm_password" => "Passwords do not match"
+   ],
+    "fields" => [
+        "illegal_operation" => "Illegal Operation",
+        "set_login_white_ip" => "Please set withdrawal whitelist",
+        "none_login_white_ip" => "Submission IP not in whitelist",
+        "amount_password_error" => "Incorrect fund password",
+        "bank_name_not_empty" => "Bank name cannot be empty",
+        "bank_branch_not_empty" => "India IFSC cannot be empty",
+        "amount_glt_zero" => "Settlement amount must be greater than 0",
+        "none_set_transfer_rate" => "No proxy payment channel rate set",
+        "none_find_transfer_rate" => "No eligible channel rate found",
+        "batch_upload_data" => "Please upload batch EXCEL data",
+        "batch_upload_data_empty" => "No relevant settlement data parsed",
+        "upload_forbidden" => "You are not allowed to operate this uploaded file",
+        "upload_file_expired" => "The uploaded file has expired, please upload it again",
+        "upload_invalid_file" => "Invalid uploaded file, please upload it again",
+        "upload_file_too_large" => "The uploaded file cannot exceed 10MB",
+        "upload_invalid_file_type" => "Only valid XLSX files are allowed",
+        "reset_google_2fa_code" => "Reset Google Verification Code"
+    ]
+];

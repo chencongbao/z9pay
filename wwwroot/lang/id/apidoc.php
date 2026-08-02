@@ -1,0 +1,26 @@
+<?php
+
+return [
+    "apps.title.cny" => "Yuan Tiongkok",
+    "apps.title.vnd" => "Mata Uang Vietnam",
+    "apps.title.inr" => "Rupee India",
+    "apps.title.id" => "Rupiah Indonesia",
+    "apps.title.php" => "Peso",
+    "apps.title.thb" => "Baht Thailand",
+    "apps.title.myr" => "Ringgit Malaysia",
+    "apps.title.bdt" => "Taka Bangladesh",
+    "apps.title.pkr" => "Rupee Pakistan",
+    "apps.title.try" => "Lira Turki",
+    "apps.title.brl" => "Real Brasil",
+    "apps.title.hk" => "Dolar Hong Kong",
+    "apps.title.mxn" => "Peso Meksiko",
+    "apps.title.mmk" => "Dolar Burma",
+    "apps.title.jpy" => "Yen Jepang",
+    "api.home.title" => "Daftar Antarmuka",
+    "api.depositsindex.title" => "Koleksi",
+    "api.depositsquery.title" => "Pertanyaan Koleksi",
+    "api.transfersindex.title" => "Pembayaran",
+    "api.transfersquery.title" => "Pertanyaan Pembayaran",
+    "api.balance.title" => "Pertanyaan Saldo",
+    "api.contenttype.desc" => "Permintaan Jenis Media",
+];

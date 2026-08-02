@@ -1,0 +1,36 @@
+<?php
+return [
+    'labels' => [
+        'DepositOrder'   => 'Đơn nạp tiền',
+        'deposit-order'  => 'Đơn nạp tiền',
+        'deposit-orders' => 'Danh sách đơn nạp tiền',
+    ],
+    'fields' => [
+        'merchant_user_id'   => 'ID thương gia',
+        'magent_user_id'     => 'ID đại lý thương gia',
+        'user_id'            => 'ID người thanh toán',
+        'uagent_user_id'     => 'ID đại lý người thanh toán',
+        'amount'             => 'Số tiền nạp của đơn hàng',
+        'pay_amount'         => 'Số tiền thực trả',
+        'fee'                => 'Phí đơn nạp tiền',
+        'currency_id'        => 'Loại tiền tệ (CNY, USDT, VND, INR)',
+        'order_no'           => 'Mã đơn hàng duy nhất của thương gia',
+        'ordernumber'        => 'Số đơn hàng',
+        'payment_id'         => 'Cổng thanh toán',
+        'notify_url'         => 'URL thông báo kết quả thanh toán cho thương gia',
+        'return_url'         => 'URL chuyển hướng đồng bộ của thương gia',
+        'extra'              => 'Tham số truyền qua (trả về nguyên trạng)',
+        'tag'                => 'Mã thương gia (nhập trong Merchant Admin)',
+        'ip'                 => 'Địa chỉ IP khách hàng',
+        'bank_code'          => 'Mã ngân hàng người thanh toán (ALIPAY / WECHAT cho ví điện tử)',
+        'member_id'          => 'ID thành viên do thương gia cung cấp',
+        'member_level'       => 'Cấp thành viên do thương gia cung cấp',
+        'member_name'        => 'Tên thành viên',
+        'member_email'       => 'Email thành viên',
+        'member_phone'       => 'Số điện thoại thành viên',
+        'data_type'          => 'Trả về thông tin thẻ thanh toán nếu thương gia dùng quầy thu ngân riêng (JSON)',
+        'status'             => 'Trạng thái đơn hàng',
+    ],
+    'options' => [
+    ],
+];

@@ -1,0 +1,251 @@
+:root {
+    --admin-horizontal-menu-height: 0px;
+    --admin-horizontal-menu-extra-height: 0px;
+}
+
+body.horizontal-menu .wrapper,
+body.horizontal-menu .main-header,
+body.horizontal-menu .header-navbar.navbar-with-menu,
+body.horizontal-menu .header-navbar.navbar-expand-lg,
+body.horizontal-menu .navbar-wrapper,
+body.horizontal-menu .navbar-container.content {
+    margin-left: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+body.horizontal-menu .navbar-collapse.d-flex.justify-content-between {
+    justify-content: center !important;
+    position: relative;
+}
+
+body.horizontal-menu .navbar-left.d-flex.align-items-center:empty {
+    display: none !important;
+}
+
+body.horizontal-menu .horizontal-navbar-brand {
+    position: absolute;
+    left: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 !important;
+    z-index: 2;
+}
+
+body.horizontal-menu .navbar-right.d-flex.align-items-center {
+    margin-left: auto;
+    position: relative;
+    z-index: 3;
+}
+
+/* 顶部横向菜单居中 */
+.header-navbar.navbar-horizontal {
+    height: auto !important;
+    min-height: 40px;
+    position: relative;
+    z-index: 3000 !important;
+    margin-bottom: 0 !important;
+    overflow: visible !important;
+}
+
+body.horizontal-menu:not(.iframe-tab-page) .header-navbar.navbar-horizontal {
+    position: fixed !important;
+    top: 60px !important;
+}
+
+body.horizontal-menu:not(.iframe-tab-page) .main-horizontal-sidebar {
+    position: fixed !important;
+    top: 60px !important;
+    left: 0 !important;
+    width: 100% !important;
+}
+
+.header-navbar.navbar-horizontal .navbar-container,
+.header-navbar.navbar-horizontal .content,
+.header-navbar.navbar-horizontal .main-menu-content,
+.header-navbar.navbar-horizontal .main-horizontal-sidebar,
+.header-navbar.navbar-horizontal .main-horizontal-sidebar > .pl-1.pr-1 {
+    height: auto !important;
+    min-height: 40px;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    overflow: visible !important;
+}
+
+.header-navbar.navbar-horizontal .main-menu-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-navbar.navbar-horizontal .main-horizontal-sidebar {
+    width: 100%;
+}
+
+.header-navbar.navbar-horizontal .main-horizontal-sidebar > .pl-1.pr-1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.header-navbar.navbar-horizontal .nav.nav-sidebar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.header-navbar.navbar-horizontal .nav.nav-sidebar > .nav-item {
+    float: none;
+    flex: 0 0 auto;
+}
+
+.header-navbar.navbar-horizontal .dropdown-menu,
+.header-navbar.navbar-horizontal .dropdown-submenu .dropdown-menu {
+    z-index: 3200 !important;
+    overflow: visible !important;
+}
+
+.header-navbar.navbar-horizontal .dropdown-submenu {
+    position: relative;
+}
+
+.header-navbar.navbar-horizontal .dropdown-submenu > .dropdown-menu {
+    top: 0 !important;
+    left: 100% !important;
+    right: auto !important;
+    margin-top: 0 !important;
+    transform: none !important;
+    inset: 0 auto auto 100% !important;
+}
+
+.header-navbar.navbar-horizontal .dropdown-menu .dropdown-item,
+.header-navbar.navbar-horizontal .dropdown-submenu .dropdown-menu .dropdown-item,
+.header-navbar.navbar-horizontal .dropdown-menu .nav-link,
+.header-navbar.navbar-horizontal .dropdown-submenu .dropdown-menu .nav-link {
+    white-space: nowrap;
+    color: #626262 !important;
+    background: #fff !important;
+}
+
+.header-navbar.navbar-horizontal .dropdown-menu .dropdown-item::after,
+.header-navbar.navbar-horizontal .dropdown-submenu .dropdown-menu .dropdown-item::after,
+.header-navbar.navbar-horizontal .dropdown-menu .nav-link::after,
+.header-navbar.navbar-horizontal .dropdown-submenu .dropdown-menu .nav-link::after {
+    display: none !important;
+}
+
+.header-navbar.navbar-horizontal .dropdown-menu .dropdown-item:hover,
+.header-navbar.navbar-horizontal .dropdown-submenu .dropdown-menu .dropdown-item:hover,
+.header-navbar.navbar-horizontal .dropdown-menu .nav-link:hover,
+.header-navbar.navbar-horizontal .dropdown-submenu .dropdown-menu .nav-link:hover {
+    text-decoration: none !important;
+    color: #626262 !important;
+    background: #f8f9fb !important;
+}
+
+.header-navbar.navbar-horizontal .dropdown-menu .dropdown-item.active,
+.header-navbar.navbar-horizontal .dropdown-submenu .dropdown-menu .dropdown-item.active,
+.header-navbar.navbar-horizontal .dropdown-menu .nav-link.active,
+.header-navbar.navbar-horizontal .dropdown-submenu .dropdown-menu .nav-link.active,
+.header-navbar.navbar-horizontal .dropdown-menu .dropdown-item.current,
+.header-navbar.navbar-horizontal .dropdown-submenu .dropdown-menu .dropdown-item.current,
+.header-navbar.navbar-horizontal .dropdown-menu .nav-link.current,
+.header-navbar.navbar-horizontal .dropdown-submenu .dropdown-menu .nav-link.current {
+    text-decoration: none !important;
+    color: #626262 !important;
+    background: #fff !important;
+}
+
+.header-navbar.navbar-horizontal .dropdown-menu .dropdown-item.active *,
+.header-navbar.navbar-horizontal .dropdown-submenu .dropdown-menu .dropdown-item.active *,
+.header-navbar.navbar-horizontal .dropdown-menu .nav-link.active *,
+.header-navbar.navbar-horizontal .dropdown-submenu .dropdown-menu .nav-link.active *,
+.header-navbar.navbar-horizontal .dropdown-menu .dropdown-item.current *,
+.header-navbar.navbar-horizontal .dropdown-submenu .dropdown-menu .dropdown-item.current *,
+.header-navbar.navbar-horizontal .dropdown-menu .nav-link.current *,
+.header-navbar.navbar-horizontal .dropdown-submenu .dropdown-menu .nav-link.current * {
+    color: inherit !important;
+    font-weight: inherit !important;
+}
+
+.header-navbar.navbar-horizontal .dropdown-menu .dropdown-item *,
+.header-navbar.navbar-horizontal .dropdown-submenu .dropdown-menu .dropdown-item *,
+.header-navbar.navbar-horizontal .dropdown-menu .nav-link *,
+.header-navbar.navbar-horizontal .dropdown-submenu .dropdown-menu .nav-link * {
+    color: #626262 !important;
+    opacity: 1 !important;
+}
+
+.header-navbar.navbar-horizontal .nav.nav-sidebar > .nav-item > .nav-link.active,
+.header-navbar.navbar-horizontal .nav.nav-sidebar > .nav-item.active > .nav-link,
+.header-navbar.navbar-horizontal .nav.nav-sidebar > .nav-item.dropdown.menu-open > .nav-link,
+.header-navbar.navbar-horizontal .nav.nav-sidebar > .nav-item.dropdown.show > .nav-link {
+    position: relative;
+}
+
+.header-navbar.navbar-horizontal .nav.nav-sidebar > .nav-item > .nav-link.active::after,
+.header-navbar.navbar-horizontal .nav.nav-sidebar > .nav-item.active > .nav-link::after,
+.header-navbar.navbar-horizontal .nav.nav-sidebar > .nav-item.dropdown.menu-open > .nav-link::after,
+.header-navbar.navbar-horizontal .nav.nav-sidebar > .nav-item.dropdown.show > .nav-link::after {
+    display: none !important;
+}
+
+.header-navbar.navbar-horizontal .nav.nav-sidebar > .nav-item > .nav-link.active,
+.header-navbar.navbar-horizontal .nav.nav-sidebar > .nav-item.active > .nav-link,
+.header-navbar.navbar-horizontal .nav.nav-sidebar > .nav-item.dropdown.menu-open > .nav-link,
+.header-navbar.navbar-horizontal .nav.nav-sidebar > .nav-item.dropdown.show > .nav-link {
+    box-shadow: none !important;
+}
+
+/* 页面刷新按钮固定在屏幕底部，完整显示但尽量避开主要操作区域。 */
+.admin-page-refresh-btn {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #168f5d;
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(18, 132, 85, .24);
+    z-index: 1035;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: .86;
+    transition: opacity .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.admin-page-refresh-btn:hover {
+    background: #11784e;
+    opacity: 1;
+    box-shadow: 0 8px 20px rgba(18, 132, 85, .32);
+}
+
+.admin-page-refresh-btn:focus {
+    outline: 2px solid rgba(22, 143, 93, .25);
+    outline-offset: 2px;
+    opacity: 1;
+}
+
+.admin-page-refresh-btn i {
+    font-size: 17px;
+}
+
+@media (max-width: 768px) {
+    .admin-page-refresh-btn {
+        right: 16px;
+        bottom: 16px;
+    }
+}

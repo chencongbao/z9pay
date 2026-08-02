@@ -1,0 +1,399 @@
+.main-box {
+    background: #FFFFFF;
+    margin-bottom: 16px;
+    /* overflow: hidden; */
+    border-radius: 3px;
+    background-clip: padding-box;
+}
+.infographic-box {
+    padding: 20px;
+}
+.infographic-box i {
+    font-size: 2.4em;
+    display: block;
+    float: left;
+    margin-right: 15px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    border-radius: 50%;
+    background-clip: padding-box;
+    color: #fff;
+}
+.red-bg {
+    background-color: #e74c3c !important;
+}
+
+.emerald-bg {
+    background-color: #17a2b8!important;
+}
+
+.green-bg {
+    background-color: #28a745!important;
+}
+
+.yellow-bg {
+    background-color: #ffc107!important;
+}
+.infographic-box .headline {
+    display: block;
+    font-size: 1.2em;
+    font-weight: 300;
+    text-align: right;
+}
+.infographic-box .value {
+    font-size: 2.1em;
+    font-weight: 600;
+    margin-top: -5px;
+    display: block;
+    text-align: right;
+    padding-top: 10px;
+}
+
+.right-side-filter-container .header{
+    margin-left: 0;
+    z-index:10000;
+}
+
+/* 系统列表表头统一颜色 */
+.table thead th,
+.table-bordered thead th,
+.table-responsive .table thead th,
+#grid-table thead th,
+.custom-data-table thead th {
+    background: #556476;
+    color: #fff;
+    border-color: #6b7b90;
+}
+
+.bootstrap-datetimepicker-widget {
+    z-index: 6000 !important;
+}
+
+.bootstrap-datetimepicker-widget.dropdown-menu,
+.bootstrap-datetimepicker-widget.dropdown-menu.bottom,
+.bootstrap-datetimepicker-widget.dropdown-menu.top {
+    z-index: 6000 !important;
+}
+
+.dropdown-menu{
+    z-index: 1050 !important;
+}
+
+body.horizontal-menu .main-header,
+body.horizontal-menu .main-header .navbar,
+body.horizontal-menu .main-header .navbar-nav,
+body.horizontal-menu .main-header .nav-item,
+body.horizontal-menu .main-header .dropdown,
+body.horizontal-menu .header-navbar .navbar-container,
+body.horizontal-menu .header-navbar .content,
+body.horizontal-menu .header-navbar .main-menu-content {
+    overflow: visible !important;
+}
+
+body.horizontal-menu .main-header,
+body.horizontal-menu .main-header .navbar,
+body.horizontal-menu .header-navbar .navbar-container {
+    position: relative;
+    z-index: 3300 !important;
+}
+
+body.horizontal-menu nav.header-navbar.navbar-with-menu.fixed-top,
+body.horizontal-menu .wrapper > nav.header-navbar.navbar-with-menu.fixed-top,
+body.horizontal-menu nav.header-navbar.navbar-expand-lg.navbar.navbar-with-menu.fixed-top {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 3300 !important;
+}
+
+body.horizontal-menu nav.header-navbar.navbar-with-menu.fixed-top .navbar-wrapper,
+body.horizontal-menu nav.header-navbar.navbar-with-menu.fixed-top .navbar-container.content {
+    position: static !important;
+}
+
+body.horizontal-menu .main-header .navbar > .dropdown > .dropdown-menu,
+body.horizontal-menu .main-header .navbar-nav > .dropdown > .dropdown-menu,
+body.horizontal-menu .navbar > .dropdown > .dropdown-menu.dropdown-menu-right,
+body.horizontal-menu .navbar > .dropdown > .dropdown-menu.dropdown-menu-left {
+    z-index: 3500 !important;
+    margin-top: 0 !important;
+    position: absolute !important;
+    top: 100% !important;
+    transform: none !important;
+    inset: auto 0 auto auto !important;
+}
+
+body.horizontal-menu .main-header .dropdown-submenu {
+    position: relative;
+}
+
+body.horizontal-menu .main-header .dropdown-submenu > .dropdown-menu {
+    position: absolute !important;
+    top: 0 !important;
+    left: 100% !important;
+    right: auto !important;
+    margin-top: 0 !important;
+    transform: none !important;
+    inset: 0 auto auto 100% !important;
+}
+
+body.horizontal-menu .main-header .navbar .dropdown,
+body.horizontal-menu .main-header .navbar-nav .dropdown,
+body.iframe-tab-horizontal .main-header .navbar .dropdown,
+body.iframe-tab-horizontal .main-header .navbar-nav .dropdown {
+    position: relative;
+}
+
+body.horizontal-menu .navbar-nav > .dropdown-user .dropdown-menu,
+body.horizontal-menu .navbar-nav > .dropdown-notification .dropdown-menu,
+body.iframe-tab-horizontal .navbar-nav > .dropdown-user .dropdown-menu,
+body.iframe-tab-horizontal .navbar-nav > .dropdown-notification .dropdown-menu {
+    right: 0 !important;
+    left: auto !important;
+    min-width: 220px !important;
+}
+
+body.horizontal-menu .popover,
+body.horizontal-menu .tooltip,
+body.horizontal-menu .layui-layer,
+body.horizontal-menu .dropdown-menu.show,
+body.iframe-tab-horizontal .popover,
+body.iframe-tab-horizontal .tooltip,
+body.iframe-tab-horizontal .layui-layer,
+body.iframe-tab-horizontal .dropdown-menu.show {
+    z-index: 4200 !important;
+}
+
+body.horizontal-menu .modal,
+body.iframe-tab-horizontal .modal {
+    z-index: 4000 !important;
+}
+
+body.horizontal-menu .modal-backdrop,
+body.iframe-tab-horizontal .modal-backdrop {
+    z-index: 3990 !important;
+}
+
+body.horizontal-menu .layui-layer-shade,
+body.iframe-tab-horizontal .layui-layer-shade {
+    z-index: 4190 !important;
+}
+
+.select2-container--open {
+    z-index: 4100 !important;
+}
+
+.select2-dropdown {
+    z-index: 4101 !important;
+}
+
+body.horizontal-menu .layui-layer .select2-container,
+body.iframe-tab-horizontal .layui-layer .select2-container {
+    z-index: 4200 !important;
+}
+
+body.horizontal-menu .layui-layer .select2-container--open,
+body.iframe-tab-horizontal .layui-layer .select2-container--open {
+    z-index: 4201 !important;
+}
+
+body.horizontal-menu .layui-layer .select2-dropdown,
+body.iframe-tab-horizontal .layui-layer .select2-dropdown {
+    z-index: 4202 !important;
+}
+
+body.horizontal-menu .toast,
+body.horizontal-menu .toast-top-right,
+body.horizontal-menu .toast-bottom-right,
+body.horizontal-menu .toast-bottom-left,
+body.horizontal-menu .toast-top-left,
+body.horizontal-menu .toast-top-center,
+body.horizontal-menu .toast-top-full-width,
+body.horizontal-menu .jq-toast-wrap,
+body.horizontal-menu .toast-container,
+body.horizontal-menu #toast-container,
+body.horizontal-menu #toast-container > .toast,
+body.horizontal-menu .layui-layer-msg,
+body.horizontal-menu .layui-layer-hui,
+body.horizontal-menu .swal2-container,
+body.iframe-tab-horizontal .toast,
+body.iframe-tab-horizontal .toast-top-right,
+body.iframe-tab-horizontal .toast-bottom-right,
+body.iframe-tab-horizontal .toast-bottom-left,
+body.iframe-tab-horizontal .toast-top-left,
+body.iframe-tab-horizontal .toast-top-center,
+body.iframe-tab-horizontal .toast-top-full-width,
+body.iframe-tab-horizontal .jq-toast-wrap,
+body.iframe-tab-horizontal .toast-container,
+body.iframe-tab-horizontal #toast-container,
+body.iframe-tab-horizontal #toast-container > .toast,
+body.iframe-tab-horizontal .layui-layer-msg,
+body.iframe-tab-horizontal .layui-layer-hui,
+body.iframe-tab-horizontal .swal2-container {
+    z-index: 12000 !important;
+}
+
+body.horizontal-menu .toast-top-right,
+body.horizontal-menu .toast-top-left,
+body.horizontal-menu .toast-top-center,
+body.horizontal-menu .toast-top-full-width,
+body.horizontal-menu #toast-container.toast-top-right,
+body.horizontal-menu #toast-container.toast-top-left,
+body.horizontal-menu #toast-container.toast-top-center,
+body.horizontal-menu #toast-container.toast-top-full-width,
+body.iframe-tab-horizontal .toast-top-right,
+body.iframe-tab-horizontal .toast-top-left,
+body.iframe-tab-horizontal .toast-top-center,
+body.iframe-tab-horizontal .toast-top-full-width,
+body.iframe-tab-horizontal #toast-container.toast-top-right,
+body.iframe-tab-horizontal #toast-container.toast-top-left,
+body.iframe-tab-horizontal #toast-container.toast-top-center,
+body.iframe-tab-horizontal #toast-container.toast-top-full-width {
+    top: calc(var(--admin-horizontal-menu-height, 110px) + 12px) !important;
+}
+
+/* 表格操作列下拉菜单向页面内侧展开 */
+.grid-dropdown-actions {
+    position: relative;
+    display: flex !important;
+    width: 100% !important;
+    float: none !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center;
+}
+
+.grid-dropdown-actions > .grid-dropdown-actions-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+    width: 24px;
+    height: 24px;
+    margin: 0 auto;
+}
+
+.grid-dropdown-actions > .dropdown-menu {
+    position: absolute !important;
+    top: 100% !important;
+    left: auto !important;
+    right: 0 !important;
+    transform: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    min-width: 160px;
+}
+
+.grid-dropdown-actions > .dropdown-menu::before {
+    left: auto !important;
+    right: 12px !important;
+    top: -6px !important;
+    transform: rotate(45deg) !important;
+}
+
+th.column-__actions__,
+td.column-__actions__ {
+    text-align: center !important;
+}
+
+/* 商户后台移动端：页面本身不横向滚动，宽表格交给表格容器内部滚动 */
+@media (max-width: 767.98px) {
+    html,
+    body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .wrapper,
+    .content-wrapper,
+    .content-body,
+    .content,
+    .container,
+    .container-fluid,
+    .card,
+    .box,
+    .grid,
+    .grid-box,
+    .grid-panel {
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .content-wrapper,
+    .content-body,
+    .content,
+    .container-fluid {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+    .grid .table-responsive,
+    .grid-box .table-responsive,
+    .box-body.table-responsive,
+    .card-body.table-responsive {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .grid .table-responsive #grid-table,
+    .grid-box .table-responsive #grid-table,
+    .box-body.table-responsive #grid-table,
+    .card-body.table-responsive #grid-table {
+        width: max-content;
+        min-width: 100%;
+        max-width: none;
+    }
+
+    .main-box,
+    .infographic-box {
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .infographic-box {
+        padding: 14px;
+    }
+
+    .infographic-box i {
+        width: 42px;
+        height: 42px;
+        line-height: 42px;
+        margin-right: 10px;
+        font-size: 1.6em;
+    }
+
+    .infographic-box .headline {
+        font-size: 13px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .infographic-box .value {
+        font-size: 22px;
+        line-height: 1.25;
+        word-break: break-all;
+    }
+
+    .main-box .timer {
+        word-break: break-all;
+    }
+
+    .main-box [style*="display:flex"] {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .main-box [style*="display:flex"] > div {
+        min-width: 90px;
+    }
+}

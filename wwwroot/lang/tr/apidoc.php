@@ -1,0 +1,26 @@
+<?php
+
+return [
+    "apps.title.cny" => "Çin Yuanı",
+    "apps.title.vnd" => "Vietnam Para Birimi",
+    "apps.title.inr" => "Hint Rupisi",
+    "apps.title.id" => "Endonezya Rupiahı",
+    "apps.title.php" => "Peso",
+    "apps.title.thb" => "Tayland Bahtı",
+    "apps.title.myr" => "Malezya Ringgiti",
+    "apps.title.bdt" => "Bangladeş Takası",
+    "apps.title.pkr" => "Pakistan Rupisi",
+    "apps.title.try" => "Türk Lirası",
+    "apps.title.brl" => "Brezilya Reali",
+    "apps.title.hk" => "Hong Kong Doları",
+    "apps.title.mxn" => "Meksika Pezosu",
+    "apps.title.mmk" => "Birmanya Doları",
+    "apps.title.jpy" => "Japon Yeni",
+    "api.home.title" => "Arayüz Listesi",
+    "api.depositsindex.title" => "Koleksiyonlar",
+    "api.depositsquery.title" => "Tahsilat Sorgulama",
+    "api.transfersindex.title" => "Ödeme",
+    "api.transfersquery.title" => "Ödeme Sorgulama",
+    "api.balance.title" => "Bakiye Sorgulama",
+    "api.contenttype.desc" => "Medya Türü İste",
+];

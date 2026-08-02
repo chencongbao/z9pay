@@ -1,0 +1,52 @@
+<div class="row" style="padding-top: 20px;">
+    <div class="col-lg-4 col-sm-4 col-xs-12">
+        <div class="main-box infographic-box">
+            <i class="fa fa-money red-bg"></i>
+            <span class="headline">订单实付金额</span>
+            <span class="value">
+<span class="timer">{{$total_amount}}</span>
+</span>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-4 col-xs-12">
+        <div class="main-box infographic-box">
+            <i class="fa fa-money bg-purple"></i>
+            <span class="headline">商户总手续费</span>
+            <span class="value">
+<span class="timer">{{$total_merchant_fee}}</span>
+</span>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-4 col-xs-12">
+        <div class="main-box infographic-box">
+            <i class="fa fa-money emerald-bg"></i>
+            <span class="headline">净交易额</span>
+            <span class="value">
+<span class="timer">{{$jin_amount}}</span>
+</span>
+        </div>
+    </div>
+
+
+</div>
+<div class="row" style="padding-top: 20px;">
+    <div class="col-lg-4 col-sm-4 col-xs-12">
+        <div class="main-box infographic-box">
+            <i class="feather icon-shopping-cart bg-blue"></i>
+            <span class="headline">成功率</span>
+            <span class="value">
+<span class="timer">{{$total_number == 0 ? 0 : bob_amount_format($success_total_number/$total_number) * 100 ."%"}}</span>
+</span>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-4 col-xs-12">
+        <div class="main-box infographic-box">
+            <i class="feather icon-shopping-cart green-bg"></i>
+            <span class="headline">总订单量</span>
+            <span class="value">
+<span class="timer">{{$total_number}}</span>
+</span>
+        </div>
+    </div>
+</div>

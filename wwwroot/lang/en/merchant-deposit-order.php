@@ -1,0 +1,36 @@
+<?php
+return [
+    'labels' => [
+        'DepositOrder'   => 'Deposit Order',
+        'deposit-order'  => 'Deposit Order',
+        'deposit-orders' => 'Deposit Orders',
+    ],
+    'fields' => [
+        'merchant_user_id'   => 'Merchant ID',
+        'magent_user_id'     => 'Merchant Agent ID',
+        'user_id'            => 'Payer ID',
+        'uagent_user_id'     => 'Payer Agent ID',
+        'amount'             => 'Order Deposit Amount',
+        'pay_amount'         => 'Actual Paid Amount',
+        'fee'                => 'Deposit Order Fee',
+        'currency_id'        => 'Currency Type (CNY, USDT, VND, INR)',
+        'order_no'           => 'Merchant Unique Order Number',
+        'ordernumber'        => 'Order Number',
+        'payment_id'         => 'Gateway',
+        'notify_url'         => 'Merchant Payment Result Notification URL',
+        'return_url'         => 'Merchant Synchronous Redirect URL',
+        'extra'              => 'Pass-through Parameters (Returned as-is)',
+        'tag'                => 'Merchant Code (Entered in Merchant Admin)',
+        'ip'                 => 'Customer IP Address',
+        'bank_code'          => 'Payer Bank Code (ALIPAY / WECHAT for E-wallets)',
+        'member_id'          => 'Member ID Provided by Merchant',
+        'member_level'       => 'Member Level Provided by Merchant',
+        'member_name'        => 'Member Name',
+        'member_email'       => 'Member Email',
+        'member_phone'       => 'Member Phone Number',
+        'data_type'          => 'Return Payment Card Info if Merchant Uses Own Cashier (JSON)',
+        'status'             => 'Order Status',
+    ],
+    'options' => [
+    ],
+];

@@ -1,0 +1,26 @@
+<?php
+
+return [
+    "apps.title.cny" => "人民元",
+    "apps.title.vnd" => "ベトナムドル",
+    "apps.title.inr" => "インドルピー",
+    "apps.title.id" => "インドネシア盾",
+    "apps.title.php" => "ペソ",
+    "apps.title.thb" => "バーツ",
+    "apps.title.myr" => "マレーシアリンギット",
+    "apps.title.bdt" => "バングラデシュ・タカ",
+    "apps.title.pkr" => "パキスタン・ルピー",
+    "apps.title.try" => "トルコリラ",
+    "apps.title.brl" => "ブラジル・レアル",
+    "apps.title.hk" => "香港ドル",
+    "apps.title.mxn" => "メキシコペソ",
+    "apps.title.mmk" => "メイン",
+    "apps.title.jpy" => "円",
+    "api.home.title" => "インタフェースリスト",
+    "api.depositsindex.title" => "代引き注文",
+    "api.depositsquery.title" => "代理収入照会",
+    "api.transfersindex.title" => "代払い注文",
+    "api.transfersquery.title" => "支払代行照会",
+    "api.balance.title" => "残高照会",
+    "api.contenttype.desc" => "要求メディアタイプ",
+];

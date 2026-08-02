@@ -1,0 +1,30 @@
+<?php
+
+return [
+    "apps.title.cny" => "Yuan chino",
+    "apps.title.vnd" => "Moneda vietnamita",
+    "apps.title.inr" => "Rupia india",
+    "apps.title.id" => "Rupia indonesia",
+    "apps.title.php" => "Peso",
+    "apps.title.thb" => "Baht tailandés",
+    "apps.title.myr" => "Ringgit malasio",
+    "apps.title.bdt" => "Taka bangladeshí",
+    "apps.title.pkr" => "Rupia paquistaní",
+    "apps.title.try" => "Lira turca",
+    "apps.title.brl" => "Real brasileño",
+    "apps.title.hk" => "Dólar de Hong Kong",
+    "apps.title.mxn" => "Peso mexicano",
+    "apps.title.mmk" => "Dólar birmano",
+    "apps.title.jpy" => "Yen japonés",
+    "api.home.title" => "Lista de interfaces",
+    "api.depositsindex.title" => "Cobros",
+    "api.depositsquery.title" => "Consulta de cobros",
+    "api.transfersindex.title" => "Pago",
+    "api.transfersquery.title" => "Consulta de pagos",
+    "api.balance.title" => "Consulta de saldo",
+    "api.contenttype.desc" => "Solicitar tipo de medio",
+    "api.bank_name" => "Remittance Bank",
+    "api.card_no" => "Remittance Bank Account Number",
+    "api.card_name" => "Remitter's Real Name",
+    "docs.deposits.index.s10" => "For integrating with Thai payments, the bank_name, card_no, and card_name fields are required."
+];

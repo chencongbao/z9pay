@@ -1,0 +1,26 @@
+<?php
+
+return [
+    "apps.title.cny" => "Yuan chinês",
+    "apps.title.vnd" => "Moeda vietnamita",
+    "apps.title.inr" => "Rúpia indiana",
+    "apps.title.id" => "Rúpia indonésia",
+    "apps.title.php" => "Peso",
+    "apps.title.thb" => "Baht tailandês",
+    "apps.title.myr" => "Ringgit da Malásia",
+    "apps.title.bdt" => "Taka de Bangladesh",
+    "apps.title.pkr" => "Rúpia paquistanesa",
+    "apps.title.try" => "Lira turca",
+    "apps.title.brl" => "Real brasileiro",
+    "apps.title.hk" => "Dólar de Hong Kong",
+    "apps.title.mxn" => "Peso mexicano",
+    "apps.title.mmk" => "Dólar birmanês",
+    "apps.title.jpy" => "Iene japonês",
+    "api.home.title" => "Lista de interfaces",
+    "api.depositsindex.title" => "Coleções",
+    "api.depositsquery.title" => "Consulta de cobranças",
+    "api.transfersindex.title" => "Pagamento",
+    "api.transfersquery.title" => "Consulta de pagamento",
+    "api.balance.title" => "Consulta de saldo",
+    "api.contenttype.desc" => "Solicitar tipo de mídia",
+];

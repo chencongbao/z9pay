@@ -1,0 +1,26 @@
+<?php
+
+return [
+    "apps.title.cny" => "หยวนจีน",
+    "apps.title.vnd" => "ดอลลาร์เวียดนาม",
+    "apps.title.inr" => "รูปีอินเดีย",
+    "apps.title.id" => "รูเปียห์อินโดนีเซีย",
+    "apps.title.php" => "เปโซ",
+    "apps.title.thb" => "บาท",
+    "apps.title.myr" => "ริงกิตมาเลเซีย",
+    "apps.title.bdt" => "ทากา บังคลาเทศ",
+    "apps.title.pkr" => "รูปีปากีสถาน",
+    "apps.title.try" => "ลีราตุรกี",
+    "apps.title.brl" => "เรียลบราซิล",
+    "apps.title.hk" => "ดอลลาร์ฮ่องกง",
+    "apps.title.mxn" => "เปโซเม็กซิโก",
+    "apps.title.mmk" => "จ๊าด",
+    "apps.title.jpy" => "เยนญี่ปุ่น",
+    "api.home.title" => "รายการอินเทอร์เฟซ",
+    "api.depositsindex.title" => "การสั่งจ่ายแทน",
+    "api.depositsquery.title" => "สอบถามการรับแทน",
+    "api.transfersindex.title" => "การชำระเงินแทนคำสั่งซื้อ",
+    "api.transfersquery.title" => "สอบถามการชำระเงิน",
+    "api.balance.title" => "สอบถามยอดคงเหลือ",
+    "api.contenttype.desc" => "ขอสื่อประเภท",
+];
