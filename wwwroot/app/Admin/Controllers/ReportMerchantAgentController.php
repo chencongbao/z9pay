@@ -24,6 +24,10 @@ class ReportMerchantAgentController extends CommonController
     protected function grid(): Grid
     {
         $agentId = (int) request('aid', 0);
+        if ($agentId <= 0) {
+            request()->query->remove('aid');
+            request()->request->remove('aid');
+        }
         $agentListService = App::make(GetMerchantAgentListService::class);
         $agentList = $agentListService->excute();
         $agentOptions = bob_build_select_options(collect($agentList)->toArray());

@@ -26,7 +26,6 @@ class Kernel extends ConsoleKernel
         $schedule->command('report')->dailyAt('01:00')->withoutOverlapping()->onOneServer();
 
         // 运维维护任务：集中放在低峰期执行。
-        $schedule->command('channel:balance-query')->dailyAt('01:00')->withoutOverlapping()->onOneServer();
         $schedule->command('failed-jobs:cleanup')->dailyAt('06:00')->withoutOverlapping()->onOneServer();
         $schedule->command('images:delete-cashier')->dailyAt('06:00')->withoutOverlapping()->onOneServer();
 

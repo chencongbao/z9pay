@@ -96,8 +96,8 @@ class BillAction
         if ($type == 2) {
             $amountText = trim(str_replace(['U', 'u'], '', $amountText));
         }
-        if (!is_numeric($amountText) || floatval($amountText) <= 0) {
-            $this->telegram->sendMessage(['chat_id' => $message['chat']['id'], 'text' => '金额无效，记账金额必须大于0', 'parse_mode' => 'html', 'reply_to_message_id' => $message['message_id']]);
+        if (!is_numeric($amountText) || floatval($amountText) == 0) {
+            $this->telegram->sendMessage(['chat_id' => $message['chat']['id'], 'text' => '金额无效，记账金额不能为0', 'parse_mode' => 'html', 'reply_to_message_id' => $message['message_id']]);
             return;
         }
 

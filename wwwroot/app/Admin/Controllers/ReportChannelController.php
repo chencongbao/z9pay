@@ -54,7 +54,7 @@ class ReportChannelController extends CommonController
 
         return Grid::make($query, function (Grid $grid) use ($mid, $sourceId, $channelId, $channelList, $channelOptions, $channelInfoService, $merchantBaseInfoService) {
             $result = $channelInfoService->excute($channelId);
-            $grid->tools()->prepend('<button class="btn btn-primary"><i class="fa fa-fw fa-users" /> ' . ($channelId > 0 ? optional($result)->offsetGet('bname') : '全部渠道') . '</button>');
+            $grid->tools()->prepend('<button class="btn btn-primary"><i class="fa fa-fw fa-users" /> ' . ($channelId > 0 ? optional($result)->offsetGet('name') : '全部渠道') . '</button>');
             $grid->column('id')->sortable()->center();
             $grid->column('date_add', '日期')->center();
             if ($sourceId === 1) {
@@ -91,6 +91,14 @@ class ReportChannelController extends CommonController
                 $grid->column('settlement_order_total_amount', '结算跑量')->amount();
                 $grid->column('settlement_order_total_fee', '结算商户手续费')->amount();
                 $grid->column('settlement_profit', '结算利润')->amount();
+            }
+
+            if ($channelId <= 0) {
+                $grid->column('channel_info_bname', '所属渠道')->display(function () use ($channelInfoService) {
+                    $channel = $channelInfoService->excute((int) $this->cid);
+
+                    return $channel['name'] ?? '渠道信息缺失';
+                });
             }
 
             $grid->disableActions();

@@ -22,6 +22,7 @@ use App\Admin\Actions\Grid\UserBank\ReduceBalance;
 use App\Services\UserBank\UserBankActionLogService;
 use App\Services\UserBank\UserBankTodayStatsService;
 use App\Admin\Actions\Grid\UserBank\BatchCopyUserBank;
+use App\Admin\Actions\Grid\UserBank\BatchDeleteUserBank;
 use App\Admin\Actions\Grid\UserBank\BatchOpenUserBank;
 use App\Admin\Actions\Grid\UserBank\BatchCloseUserBank;
 use App\Admin\Actions\Grid\UserBank\BatchUpdateLimitMinMaxAmount;
@@ -141,7 +142,10 @@ JS
             $grid->column('remark', '备注');
             $grid->showRowSelector();
             $grid->showBatchDelete();
-            $grid->tools(function ($tools) use ($canBatchClose, $canBatchOpen, $canBatchLimit, $canBatchCopy) {
+            $grid->tools(function ($tools) use ($canDelete, $canBatchClose, $canBatchOpen, $canBatchLimit, $canBatchCopy) {
+                if ($canDelete) {
+                    $tools->append(new BatchDeleteUserBank());
+                }
                 if ($canBatchClose) {
                     $tools->append(new BatchCloseUserBank());
                 }

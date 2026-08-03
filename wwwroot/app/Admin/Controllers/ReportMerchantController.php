@@ -31,6 +31,10 @@ class ReportMerchantController extends CommonController
     protected function grid(): Grid
     {
         $merchantUserId = (int) request('mid', 0);
+        if ($merchantUserId <= 0) {
+            request()->query->remove('mid');
+            request()->request->remove('mid');
+        }
         $sourceId = (int) request('source_id', 1);
         $sourceId = in_array($sourceId, [1, 2, 3], true) ? $sourceId : 1;
         $this->source_id = $sourceId;
@@ -46,11 +50,6 @@ class ReportMerchantController extends CommonController
             ->select($this->reportColumns($sourceId))
             ->orderByDesc('date_add')
             ->orderByDesc('id');
-        if ($merchantUserId <= 0) {
-            $model->with(['merchant_info' => function ($query) {
-                $query->select(['merchant_user_id', 'currency_id', 'agent_user_id', 'name', 'coder']);
-            }]);
-        }
 
         return Grid::make($model, function (Grid $grid) use ($merchantUserId, $sourceId, $merchantBaseInfoService, $merchantList, $currencyOptions) {
             $merchantName = '所有商户';
@@ -131,7 +130,11 @@ class ReportMerchantController extends CommonController
             }
 
             if ($merchantUserId <= 0) {
-                $grid->column('merchant_info.bname', '所属商户');
+                $grid->column('merchant_info_bname', '所属商户')->display(function () use ($merchantBaseInfoService) {
+                    $merchant = $merchantBaseInfoService->excute((int) $this->mid);
+
+                    return $merchant['bname'] ?? ('【#' . $this->mid . '】商户信息缺失');
+                });
             }
 
             $grid->disableActions();
@@ -162,9 +165,9 @@ class ReportMerchantController extends CommonController
 
             $grid->header(function () use ($merchantUserId, $sourceId) {
                 $tab = Tab::make();
-                $tab->addLink('代收', admin_route('report-merchants.index', ['source_id' => 1, 'mid' => $merchantUserId]), $sourceId === 1);
-                $tab->addLink('代付', admin_route('report-merchants.index', ['source_id' => 2, 'mid' => $merchantUserId]), $sourceId === 2);
-                $tab->addLink('结算', admin_route('report-merchants.index', ['source_id' => 3, 'mid' => $merchantUserId]), $sourceId === 3);
+                $tab->addLink('代收', admin_route('report-merchants.index', $this->tabQuery(1, $merchantUserId)), $sourceId === 1);
+                $tab->addLink('代付', admin_route('report-merchants.index', $this->tabQuery(2, $merchantUserId)), $sourceId === 2);
+                $tab->addLink('结算', admin_route('report-merchants.index', $this->tabQuery(3, $merchantUserId)), $sourceId === 3);
 
                 $row = new Row();
                 $row->column(4, '');
@@ -190,6 +193,16 @@ class ReportMerchantController extends CommonController
             });
 
         });
+    }
+
+    private function tabQuery(int $sourceId, int $merchantUserId): array
+    {
+        $query = ['source_id' => $sourceId];
+        if ($merchantUserId > 0) {
+            $query['mid'] = $merchantUserId;
+        }
+
+        return $query;
     }
 
     private function reportColumns(int $sourceId): array

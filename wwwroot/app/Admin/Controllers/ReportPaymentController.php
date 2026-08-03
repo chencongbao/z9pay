@@ -51,6 +51,13 @@ class ReportPaymentController extends CommonController
             $grid->tools()->prepend('<button class="btn btn-primary"><i class="fa fa-fw fa-users" /> '.$paymentName.'</button>');
             $grid->column('id')->sortable()->center();
             $grid->column('date_add', '日期')->center();
+            if ($paymentId <= 0) {
+                $grid->column('payment_info_name', '所属通道')->display(function () use ($paymentOptions) {
+                    $payment = collect($paymentOptions)->firstWhere('id', (int) $this->pid);
+
+                    return data_get($payment, 'bname', '【#'.(int) $this->pid.'】通道信息缺失');
+                });
+            }
             $grid->column('deposit_order_number_total', '代收单数');
             $grid->column('deposit_order_number_success', '代收成功单数');
             $grid->column('deposit_order_number_fail', '代收失败单数');

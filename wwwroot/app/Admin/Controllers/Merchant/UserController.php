@@ -56,7 +56,7 @@ class UserController extends CommonController
         return Grid::make(Administrator::with(["merchant_info" => function ($q) {
             $q->withTrashed();
         }]), function (Grid $grid) use ($agentDetailService, $agentOptions, $currencyOptions) {
-            $grid->model()->where('pid', 0)->orderBy('id', 'desc');
+            $grid->model()->where('pid', 0)->orderByDesc('status')->orderByDesc('id');
             $grid->column('id', "编号")->sortable()->display(function ($value) {
                 return '<a style="color:green;text-decoration: underline;" href="' . Admin::app()->getRoute("merchant.user.detail", ['id' => $this->id]) . '">' . $value . '</a>';
             })->center();

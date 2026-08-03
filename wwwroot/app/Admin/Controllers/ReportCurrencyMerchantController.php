@@ -27,6 +27,10 @@ class ReportCurrencyMerchantController extends CommonController
     protected function grid(): Grid
     {
         $mid = (int) request('mid', 0);
+        if ($mid <= 0) {
+            request()->query->remove('mid');
+            request()->request->remove('mid');
+        }
         $sourceId = (int) request('source_id', 1);
         $sourceId = in_array($sourceId, [1, 2, 3], true) ? $sourceId : 1;
         $this->source_id = $sourceId;
@@ -112,9 +116,9 @@ class ReportCurrencyMerchantController extends CommonController
 
             $grid->header(function () use ($mid, $sourceId, $currencyId) {
                 $tab = Tab::make();
-                $tab->addLink('代收', admin_route('report-currency-merchants.index', ['source_id' => 1, 'cid' => $currencyId, 'mid' => $mid]), $sourceId === 1);
-                $tab->addLink('代付', admin_route('report-currency-merchants.index', ['source_id' => 2, 'cid' => $currencyId, 'mid' => $mid]), $sourceId === 2);
-                $tab->addLink('结算', admin_route('report-currency-merchants.index', ['source_id' => 3, 'cid' => $currencyId, 'mid' => $mid]), $sourceId === 3);
+                $tab->addLink('代收', admin_route('report-currency-merchants.index', $this->tabQuery(1, $currencyId, $mid)), $sourceId === 1);
+                $tab->addLink('代付', admin_route('report-currency-merchants.index', $this->tabQuery(2, $currencyId, $mid)), $sourceId === 2);
+                $tab->addLink('结算', admin_route('report-currency-merchants.index', $this->tabQuery(3, $currencyId, $mid)), $sourceId === 3);
                 $summary = $this->summaryAmount($sourceId, $currencyId);
                 $row = new Row();
                 $row->column(4, '');
@@ -138,6 +142,16 @@ class ReportCurrencyMerchantController extends CommonController
                 return $row->render();
             });
         });
+    }
+
+    private function tabQuery(int $sourceId, int $currencyId, int $mid): array
+    {
+        $query = ['source_id' => $sourceId, 'cid' => $currencyId];
+        if ($mid > 0) {
+            $query['mid'] = $mid;
+        }
+
+        return $query;
     }
 
     private function reportColumns(int $sourceId): array

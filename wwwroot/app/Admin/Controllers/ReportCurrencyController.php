@@ -59,6 +59,13 @@ class ReportCurrencyController extends CommonController
             $grid->tools()->prepend('<button class="btn btn-primary"><i class="fa fa-fw fa-users" /> ' . ($currencyId > 0 ? data_get($currentCurrency, 'bname', '') : '全部币种') . '</button>');
             $grid->column('id')->sortable()->center();
             $grid->column('date_add', '日期')->center();
+            if ($currencyId <= 0) {
+                $grid->column('currency_info_name', '所属币种')->display(function () use ($currencyList) {
+                    $currency = $currencyList->firstWhere('id', (int) $this->cid);
+
+                    return data_get($currency, 'bname', '【#' . (int) $this->cid . '】币种信息缺失');
+                });
+            }
             if ($sourceId === 1) {
                 $grid->column('deposit_order_number_total', '代收单数');
                 $grid->column('deposit_order_number_success', '代收成功单数');

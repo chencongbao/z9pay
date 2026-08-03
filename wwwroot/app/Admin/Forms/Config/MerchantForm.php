@@ -127,9 +127,11 @@ class MerchantForm extends Form
     {
         return [
             'telegram_merchant_balance_notice_single' => array_map(function (array $item) {
+                $compare = $item['compare'] ?? 'lt';
+
                 return [
                     'mid' => intval($item['mid'] ?? 0),
-                    'compare' => in_array(($item['compare'] ?? 'lt'), ['lt', 'gt'], true) ? $item['compare'] : 'lt',
+                    'compare' => in_array($compare, ['lt', 'gt'], true) ? $compare : 'lt',
                     'value' => trim((string)($item['value'] ?? '')),
                 ];
             }, $this->activeRows($input['telegram_merchant_balance_notice_single'] ?? [])),

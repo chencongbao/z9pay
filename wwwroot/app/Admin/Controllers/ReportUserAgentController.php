@@ -27,7 +27,7 @@ class ReportUserAgentController extends CommonController
         $agentList = App::make(GetUserAgentListService::class)->excute();
         $activeAgent = $requestedAgentId > 0 ? collect($agentList)->firstWhere('id', $requestedAgentId) : null;
         $agentId = $activeAgent ? $requestedAgentId : 0;
-        if ($requestedAgentId > 0 && !$activeAgent) {
+        if ($requestedAgentId <= 0 || !$activeAgent) {
             request()->query->remove('aid');
             request()->request->remove('aid');
         }

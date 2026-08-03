@@ -31,6 +31,9 @@ class DebugCommand extends Command
      */
     public function handle()
     {
-        FoundationTelegram::withToken("7730345868:AAF3J0wD7NXJP0yJL58vagJHl1YrQKDh1bE")->to("-4253598146")->sendPhoto("https://www.phelotto.com/storage/images/b9200b9fccfef19e9b6bc65359312588.jpg","TEST20260727164003422013321\n请查询订单");
+        $overMinutes = floatval(bob_admin_setting("base_deposit_over_time")) * 60 * 1000;
+        $timeExpire  = payment_microsecond() + $overMinutes;
+        dd($timeExpire);
+        //FoundationTelegram::withToken("7730345868:AAF3J0wD7NXJP0yJL58vagJHl1YrQKDh1bE")->to("-4253598146")->sendPhoto("https://www.phelotto.com/storage/images/b9200b9fccfef19e9b6bc65359312588.jpg","TEST20260727164003422013321\n请查询订单");
     }
 }

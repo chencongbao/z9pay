@@ -198,7 +198,10 @@ class ReportUserController extends CommonController
 
     private function tabQuery(int $sourceId, int $userId, int $merchantUserId): array
     {
-        $query = ['source_id' => $sourceId, 'uid' => $userId];
+        $query = ['source_id' => $sourceId];
+        if ($userId > 0) {
+            $query['uid'] = $userId;
+        }
         if ($merchantUserId > 0) {
             $query['mid'] = $merchantUserId;
         }

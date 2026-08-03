@@ -11,8 +11,8 @@ class BillEntryCalculationService
 
     public function calculate(float $originalAmount, string $originalCurrency, float $exchangeRate, float $feeRate, bool $isIncome): array
     {
-        if ($originalAmount <= 0) {
-            throw new InvalidArgumentException('记账金额必须大于0');
+        if ($originalAmount == 0) {
+            throw new InvalidArgumentException('记账金额不能为0');
         }
         if (!in_array($originalCurrency, [self::CURRENCY_CNY, self::CURRENCY_USDT], true)) {
             throw new InvalidArgumentException('记账币种无效');

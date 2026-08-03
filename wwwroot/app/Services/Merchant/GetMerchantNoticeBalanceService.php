@@ -33,8 +33,9 @@ class GetMerchantNoticeBalanceService
                     break;
                 }
 
+                $compare = $item['compare'] ?? 'lt';
                 $rule = [
-                    'compare' => in_array(($item['compare'] ?? 'lt'), ['lt', 'gt'], true) ? $item['compare'] : 'lt',
+                    'compare' => in_array($compare, ['lt', 'gt'], true) ? $compare : 'lt',
                     'value' => floatval($item['value'] ?? 0),
                     'enabled' => true,
                 ];
