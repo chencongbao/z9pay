@@ -142,6 +142,25 @@ JS
             $grid->column('remark', '备注');
             $grid->showRowSelector();
             $grid->showBatchDelete();
+            $rowSelector = '.' . $grid->getRowName() . '-checkbox';
+            $selectAllSelector = '.' . $grid->getSelectAllName();
+            Admin::script(<<<JS
+(function () {
+    var rowSelector = '{$rowSelector}';
+    var selector = rowSelector + ', {$selectAllSelector}';
+
+    function updateUserBankSelectedCount() {
+        setTimeout(function () {
+            var count = $(rowSelector + ':checked:not(:disabled)').length;
+            var title = count > 0 ? '批量删除（已选 ' + count + ' 张）' : '批量删除';
+            $('.user-bank-batch-delete-btn').text(title);
+        }, 0);
+    }
+
+    $(document).off('change.userBankSelectedCount', selector).on('change.userBankSelectedCount', selector, updateUserBankSelectedCount);
+    updateUserBankSelectedCount();
+})();
+JS);
             $grid->tools(function ($tools) use ($canDelete, $canBatchClose, $canBatchOpen, $canBatchLimit, $canBatchCopy) {
                 if ($canDelete) {
                     $tools->append(new BatchDeleteUserBank());

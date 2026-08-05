@@ -191,6 +191,60 @@ body.iframe-tab-horizontal .layui-layer-shade {
     z-index: 4101 !important;
 }
 
+/* Select2 单选清除按钮与下拉箭头分区，避免紧邻时误操作。 */
+body .select2-container--default .select2-selection--single {
+    position: relative;
+}
+
+body .select2-container--default .select2-selection--single .select2-selection__rendered {
+    padding-right: 52px !important;
+}
+
+body .select2-container--default .select2-selection--single .select2-selection__clear {
+    position: absolute;
+    top: 50%;
+    right: 28px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px !important;
+    min-width: 18px;
+    max-width: 18px;
+    height: 18px !important;
+    min-height: 18px;
+    max-height: 18px;
+    margin: 0;
+    padding: 0 !important;
+    color: #ea5455;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+    background: #fff1f1;
+    border: 1px solid #f3b3b4;
+    border-radius: 50%;
+    box-sizing: border-box;
+    flex: 0 0 18px;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+
+body .select2-container--default .select2-selection--single .select2-selection__clear:hover,
+body .select2-container--default .select2-selection--single .select2-selection__clear:focus {
+    color: #fff;
+    background: #ea5455;
+    border-color: #ea5455;
+    box-shadow: 0 0 0 3px rgba(234, 84, 85, .16);
+    outline: 0;
+}
+
+body .select2-container--default .select2-selection--single .select2-selection__arrow {
+    right: 1px;
+    width: 22px;
+    border-left: 1px solid #dfe3e7;
+}
+
 body.horizontal-menu .layui-layer .select2-container,
 body.iframe-tab-horizontal .layui-layer .select2-container {
     z-index: 4200 !important;

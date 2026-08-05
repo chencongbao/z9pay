@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use Dcat\Admin\Admin;
 use App\Traits\ModelTraits;
 use App\Traits\ActivityLogTrait;
-use Dcat\Admin\Admin;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -41,10 +41,13 @@ class MerchantChannel extends Model
 
     private function renderAmountFeeInfo(string $type, string $color, array $data): string
     {
-        return '<div style="border-left:3px solid ' . $color . ';padding-left:8px;">'
-            . '<span style="display:inline-block;margin-bottom:5px;padding:1px 7px;border-radius:10px;background:' . $color . ';color:#fff;font-size:12px;font-weight:700;">' . $type . '</span>'
-            . bob_show_table_info($data)
-            . '</div>';
+        $html = '<div style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;line-height:22px;">'
+            . '<span style="display:inline-block;padding:1px 7px;border-radius:10px;background:' . e($color) . ';color:#fff;font-size:12px;font-weight:700;">' . e($type) . '</span>';
+        foreach ($data as [$label, $value]) {
+            $html .= '<span><span class="text-muted">' . e($label) . '：</span>' . e($value) . '</span>';
+        }
+
+        return $html . '</div>';
     }
 
     public function transferModeLabel(): string
@@ -68,7 +71,7 @@ class MerchantChannel extends Model
         }
 
         return $this->renderFloatInfoRows([
-            ['浮动方向', $this->floatTypeText($merchantFloatType)],
+            ['', $this->floatTypeText($merchantFloatType)],
             ['最大差额', bob_unit_format(optional($this->merchant_info)->float_amount ?? 0)],
             ['通道开关', $canSwitch ? $this->floatStatusSwitchHtml() : $this->floatStatusText()],
         ]);
@@ -78,7 +81,8 @@ class MerchantChannel extends Model
     {
         $html = '<div class="merchant-channel-float-info">';
         foreach ($rows as [$key, $value]) {
-            $html .= '<div class="float-row"><span class="float-key">' . e($key) . '</span><span class="float-value">' . $value . '</span></div>';
+            $label = $key !== '' ? '<span class="float-key">' . e($key) . '：</span>' : '';
+            $html .= '<div class="float-row">' . $label . '<span class="float-value">' . $value . '</span></div>';
         }
 
         return $html . '</div>';

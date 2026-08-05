@@ -97,6 +97,9 @@ instance.interceptors.request.use(
 instance.setBaseUrl = function(url) {
 	this.defaults.baseURL = url;
 	uni.setStorageSync('api_domain', url);
+	if (typeof window !== 'undefined' && typeof window.reconnectEcho === 'function') {
+		window.reconnectEcho(url);
+	}
 }
 
 // ✅ 新增：检测一条线路是否可用

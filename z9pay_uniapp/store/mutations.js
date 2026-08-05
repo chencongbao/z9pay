@@ -41,13 +41,8 @@ let mutations = {
 		state.action_limit_card = action_limit_card;
 	},
 	watchTransferNotice: (state, transfer_notice) => {
-		if (transfer_notice == 1) {
-			window.Echo.connector.pusher.connection.bind('connected', () => {
-				console.log('connected');
-			});
-			window.Echo.connector.pusher.connection.bind('disconnected', () => {
-				console.log('disconnected');
-			});
+		if (transfer_notice == 1 && window.Echo) {
+			window.Echo.leaveChannel('transfer');
 			window.Echo.channel('transfer').listen('.notice', function(data) {
 				console.log(data, 'data');
 				if (data.user_id == 0) {
@@ -64,13 +59,8 @@ let mutations = {
 		}
 	},
 	watchDepositNotice: (state, deposit_notice) => {
-		if (deposit_notice == 1) {
-			window.Echo.connector.pusher.connection.bind('connected', () => {
-				console.log('connected');
-			});
-			window.Echo.connector.pusher.connection.bind('disconnected', () => {
-				console.log('disconnected');
-			});
+		if (deposit_notice == 1 && window.Echo) {
+			window.Echo.leaveChannel('deposit');
 			window.Echo.channel('deposit').listen('.notice', function(data) {
 				console.log(data, 'data');
 				if (data.user_id == state.userid) {
@@ -82,10 +72,10 @@ let mutations = {
 		}
 	},
 	leaveTransferNotice: (state) => {
-		window.Echo.leaveChannel('transfer');
+		if (window.Echo) window.Echo.leaveChannel('transfer');
 	},
 	leaveDepositNotice: (state) => {
-		window.Echo.leaveChannel('deposit');
+		if (window.Echo) window.Echo.leaveChannel('deposit');
 	}
 };
 export default mutations;

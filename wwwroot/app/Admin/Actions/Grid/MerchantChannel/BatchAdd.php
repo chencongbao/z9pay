@@ -16,5 +16,7 @@ class BatchAdd extends BatchModalAction
 
     protected $requireSelection = false;
 
+    protected $modalSize = 'xl';
+
     protected string $permission = 'merchant-channel-batch-add';
 }

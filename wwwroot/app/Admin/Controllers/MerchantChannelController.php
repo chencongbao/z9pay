@@ -16,8 +16,8 @@ use App\Models\MerchantChannel;
 use App\Models\MerchantPayment;
 use App\Rules\DecimalTwoPlaces;
 use App\Models\AgentUserRelation;
-use Dcat\Admin\Http\Auth\Permission;
 use Illuminate\Support\Facades\App;
+use Dcat\Admin\Http\Auth\Permission;
 use Illuminate\Support\Facades\File;
 use Illuminate\Contracts\Support\Renderable;
 use App\Services\Enums\DepositChannelModeEnum;
@@ -73,6 +73,7 @@ class MerchantChannelController extends CommonController
         $merchantOptions = App::make(GetMerchantListService::class)->excute(['currency_id'], true);
         $merchantAgentOptions = bob_build_select_options(App::make(GetMerchantAgentListService::class)->excute());
         $dispatchDescription = $merchantUserId > 0 ? App::make(MerchantChannelDispatchDescriptionService::class)->excute($merchantUserId) : [];
+        $channelInfoRenderer = fn (array $data): string => $this->compactChannelInfo($data);
 
         $query = MerchantChannel::query()
             ->select([
@@ -114,6 +115,7 @@ class MerchantChannelController extends CommonController
             $merchantListInfoService,
             $merchantBaseInfoService,
             $dispatchDescription,
+            $channelInfoRenderer,
             $canCreate,
             $canEdit,
             $canDelete,
@@ -142,13 +144,13 @@ class MerchantChannelController extends CommonController
                 return $value . ([1 => '<span style="display:inline-block;margin-left:6px;padding:2px 7px;border-radius:10px;background:#fff1f0;color:#d4380d;font-size:12px;font-weight:600;white-space:nowrap;">T1</span>', 2 => '<span style="display:inline-block;margin-left:6px;padding:2px 7px;border-radius:10px;background:#fff1f0;color:#d4380d;font-size:12px;font-weight:600;white-space:nowrap;">T2</span>'][$this->settlement_mode] ?? '');
             });
             $grid->column('channel.status', '渠道状态')->status();
-            $grid->column('payment_name', '通道信息')->display(function () use ($appName) {
+            $grid->column('payment_name', '通道信息')->display(function () use ($channelInfoRenderer) {
                 if ($this->channel && $this->channel->classname && File::exists(base_path("vendor/richard/payment/src/Channel/" . $this->channel->classname . ".php"))) {
                     $classname = 'Richard\\Payment\\Channel\\' . $this->channel->classname;
                     $pay = new $classname();
                     $data = $pay->getChanelCoderTable($this->payment_id);
                     if (!empty($data)) {
-                        return bob_show_table_info($data, [], ['tr-1', 'tr-2', 'tr-3']);
+                        return $channelInfoRenderer($data);
                     }
                 }
 
@@ -329,13 +331,31 @@ class MerchantChannelController extends CommonController
         return 0;
     }
 
+    private function compactChannelInfo(array $data): string
+    {
+        $paymentName = trim(strip_tags((string)($data[0][1] ?? '')));
+        $paymentCode = str_replace('【商户对接此编码】', '', trim(strip_tags((string)($data[1][1] ?? ''))));
+        $channelCode = trim(strip_tags((string)($data[2][1] ?? '')));
+        if ($paymentName === '') {
+            return '';
+        }
+
+        $systemChannel = e($paymentName) . ($paymentCode !== '' ? '【' . e($paymentCode) . '】' : '');
+        $channelInfo = $channelCode !== '' ? '<span class="text-muted">渠道：</span>' . e($channelCode) : '';
+
+        return '<div style="display:flex;align-items:center;gap:10px;white-space:nowrap;">'
+            . '<span style="font-weight:600;">' . $systemChannel . '</span>'
+            . $channelInfo
+            . '</div>';
+    }
+
     private function registerFloatStatusScript(): void
     {
         Admin::style(<<<'CSS'
-.merchant-channel-float-info{min-width:150px}
-.merchant-channel-float-info .float-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:3px 0;color:#606266;font-size:12px}
+.merchant-channel-float-info{display:inline-flex;align-items:center;gap:10px;white-space:nowrap;line-height:22px}
+.merchant-channel-float-info .float-row{display:inline-flex;align-items:center;gap:2px;margin:0;color:#606266;font-size:12px}
 .merchant-channel-float-info .float-key{color:#909399;white-space:nowrap}
-.merchant-channel-float-info .float-value{color:#303133;font-weight:600;text-align:right}
+.merchant-channel-float-info .float-value{display:inline-flex;align-items:center;color:#303133;font-weight:600}
 .merchant-channel-float-info .float-tag{display:inline-block;padding:1px 7px;border-radius:10px;font-size:12px;font-weight:700;line-height:18px}
 .merchant-channel-float-info .float-tag-open{background:#f6ffed;color:#389e0d}
 .merchant-channel-float-info .float-tag-close{background:#fff1f0;color:#d4380d}

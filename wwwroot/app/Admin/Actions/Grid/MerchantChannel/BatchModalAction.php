@@ -16,6 +16,8 @@ abstract class BatchModalAction extends BatchAction
 
     protected $requireSelection = true;
 
+    protected $modalSize = 'lg';
+
     protected string $permission = 'merchant-channels';
 
     public function render()
@@ -23,7 +25,7 @@ abstract class BatchModalAction extends BatchAction
         $formClass = $this->formClass;
         $form = $formClass::make()->payload(['id' => $this->getKey()]);
 
-        $modal = Modal::make()->lg()->title($this->modalTitle)->body($form)->button($this->title);
+        $modal = Modal::make()->size($this->modalSize)->title($this->modalTitle)->body($form)->button($this->title);
 
         if ($this->hiddenSelector) {
             $modal->onLoad($this->getModalScript());

@@ -126,6 +126,7 @@ Route::group([
 
     //ajax
     $router->get('ajax/merchantChannelPaymentField', 'AjaxController@merchantChannelPaymentField')->name('ajax.merchantChannelPaymentField');
+    $router->get('ajax/merchantChannelBatchPaymentField', 'AjaxController@merchantChannelBatchPaymentField')->name('ajax.merchantChannelBatchPaymentField');
     $router->get('ajax/getBankCode', 'AjaxController@getBankCode')->name('ajax.getBankCode');
     $router->get('ajax/deleteChannelBankCode', 'AjaxController@deleteChannelBankCode')->name('ajax.deleteChannelBankCode');
     $router->get('ajax/getMerchantInfo', 'AjaxController@getMerchantInfo')->name('ajax.getMerchantInfo');

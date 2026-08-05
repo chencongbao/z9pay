@@ -18,6 +18,8 @@ class AjaxController extends AdminController
 {
     use ResponseTraits;
 
+    private const PAYMENT_VALUE_PREFIX = '__payment_';
+
     public function getMerchantTransferChannel(Request $request)
     {
         $merchantUserId = (int) $request->input('q', 0);
@@ -83,6 +85,34 @@ class AjaxController extends AdminController
                 $text = $code !== '' ? $name . '【' . $code . '】' : $name;
 
                 return ['id' => $value['id'], 'text' => $text];
+            })
+            ->values()
+            ->all();
+    }
+
+    public function merchantChannelBatchPaymentField(Request $request)
+    {
+        $channelId = $request->input('q');
+        if ((!is_int($channelId) && !is_string($channelId)) || !ctype_digit((string) $channelId) || (int) $channelId <= 0) {
+            return [];
+        }
+
+        $channel = Channel::query()->find((int) $channelId, ['id', 'payment_ids']);
+        if (!$channel) {
+            return [];
+        }
+
+        $paymentIds = array_map('intval', array_filter(explode(',', (string) $channel->payment_ids), 'strlen'));
+
+        return collect(config('payment', []))
+            ->filter(fn ($payment) => isset($payment['id']) && in_array((int) $payment['id'], $paymentIds, true))
+            ->map(function ($payment) {
+                $id = (int) $payment['id'];
+                $name = trim((string) ($payment['name'] ?? ''));
+                $code = trim((string) ($payment['code'] ?? ''));
+                $text = $code === '' ? $name : $name . '【' . $code . '】';
+
+                return ['id' => self::PAYMENT_VALUE_PREFIX . $id, 'text' => $text];
             })
             ->values()
             ->all();
