@@ -122,9 +122,10 @@ export default {
 		}
 
 		Vue.prototype.$parseDomain = function(domain) {
-			domain = domain.replace("https://", "");
-			domain = domain.replace("/api/", "");
-			return domain;
+			return String(domain || '')
+				.replace(/^https?:\/\//i, '')
+				.replace(/\/api\/?$/i, '')
+				.replace(/\/+$/, '');
 		}
 	}
 }

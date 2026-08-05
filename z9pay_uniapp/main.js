@@ -42,20 +42,28 @@ script2.type = "text/javascript";
 script2.src = "/static/js/audioPlayPlugin.min.js";
 document.head.appendChild(script2);
 
-const isSecureApi = String(configs.baseUrl || "").startsWith("https://");
-
 window.Pusher = Pusher;
-window.Echo = new Echo({
-  broadcaster: "pusher",
-  key: "963d39722f60853bf48f",
-  wsHost: Vue.prototype.$parseDomain(configs.baseUrl),
-  wsPort: 6001,
-  wssPort: 443,
-  cluster: "ap1",
-  forceTLS: isSecureApi,
-  disableStats: true,
-  enabledTransports: isSecureApi ? ["wss"] : ["ws", "wss"],
-});
+window.reconnectEcho = function(apiUrl, restoreChannels = true) {
+  const normalizedUrl = String(apiUrl || configs.baseUrl || "");
+  const socketHost = Vue.prototype.$parseDomain(normalizedUrl);
+  if (!socketHost) return;
+  if (window.Echo && window.EchoApiUrl === normalizedUrl) return;
+  if (window.Echo) window.Echo.disconnect();
+  const isSecureApi = normalizedUrl.startsWith("https://");
+  window.Echo = new Echo({
+    broadcaster: "pusher", key: "963d39722f60853bf48f", wsHost: socketHost,
+    wsPort: 6001, wssPort: 443, cluster: "ap1", forceTLS: isSecureApi,
+    disableStats: true, enabledTransports: ["ws", "wss"],
+  });
+  window.EchoApiUrl = normalizedUrl;
+  const pusher = window.Echo.connector.pusher;
+  if (pusher.connection.state === "initialized" || pusher.connection.state === "disconnected") pusher.connect();
+  if (restoreChannels && store.state.login) {
+    store.commit("watchTransferNotice", store.state.transfer_notice);
+    store.commit("watchDepositNotice", store.state.deposit_notice);
+  }
+};
+window.reconnectEcho(uni.getStorageSync("api_domain") || configs.baseUrl, false);
 
 Vue.component("IconSvg", IconSvg);
 Vue.component("BobHeader", bob_headerVue);
