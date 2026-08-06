@@ -598,9 +598,13 @@ class BillAction
     private function formatBillLogLine(BillLog $log, float $fallbackRate, float $fallbackFeeRate): string
     {
         $amounts = $this->resolveBillLogAmounts($log, $fallbackRate, $fallbackFeeRate);
+        $line = '<b>' . $log->created_at . '</b>     <code>' . $this->bob_unit_format($amounts['cny_amount']) . '</code>CNY ｜ <code>' . $this->bob_unit_format($amounts['usd_amount']) . '</code>USD';
 
-        return '<b>' . $log->created_at . '</b>     <code>' . $this->bob_unit_format($amounts['cny_amount']) . '</code>CNY ｜ <code>' . $this->bob_unit_format($amounts['usd_amount']) . '</code>USD'
-            . "\n汇率：<code>" . $this->bob_unit_format($amounts['exchange_rate']) . '</code> ｜ 费率：<code>' . $this->bob_unit_format($amounts['fee_rate']) . "%</code>\n";
+        if ((int)$log->type === 2 && $amounts['exchange_rate'] > 0) {
+            $line .= "\n汇率：<code>" . $this->bob_unit_format($amounts['exchange_rate']) . '</code>';
+        }
+
+        return $line . "\n";
     }
 
     private function billLogColumns(): array

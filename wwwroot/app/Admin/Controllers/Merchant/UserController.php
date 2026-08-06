@@ -56,7 +56,11 @@ class UserController extends CommonController
         return Grid::make(Administrator::with(["merchant_info" => function ($q) {
             $q->withTrashed();
         }]), function (Grid $grid) use ($agentDetailService, $agentOptions, $currencyOptions) {
-            $grid->model()->where('pid', 0)->orderByDesc('status')->orderByDesc('id');
+            $grid->model()->where('pid', 0);
+            $sort = request()->input('_sort');
+            if (!is_array($sort) || empty($sort['column']) || !in_array($sort['type'] ?? null, ['asc', 'desc'], true)) {
+                $grid->model()->orderByRaw('status DESC, id DESC');
+            }
             $grid->column('id', "编号")->sortable()->display(function ($value) {
                 return '<a style="color:green;text-decoration: underline;" href="' . Admin::app()->getRoute("merchant.user.detail", ['id' => $this->id]) . '">' . $value . '</a>';
             })->center();
@@ -85,7 +89,7 @@ class UserController extends CommonController
             $grid->column('merchant_info.currency_id', "交易币种")->display(function ($value) {
                 return bob_get_value_by_id_array(['id' => $value], 'name', config('default.currency'));
             })->center();
-            $grid->column('amount_info', "账户资金信息")->display(function ($value) {
+            $grid->column('amount_info', "账户资金信息")->sortable('merchant_info.balance_amount')->display(function ($value) {
                 $data[] = ["账户总额", bob_unit_format($this->merchant_info->balance_amount)];
                 $data[] = ["可用余额", bob_unit_format($this->merchant_info->available_balance)];
                 if ($this->merchant_info->is_usdt_ava_rate == 1) {
@@ -310,9 +314,10 @@ class UserController extends CommonController
         $merchantUserId = (int) request()->input('id');
         $info = MerchantInfo::query()->find($merchantUserId);
         $paymentMap = collect(config('payment'))->keyBy('id');
+        $canViewApiInfo = Admin::user()->isAdministrator();
 
         return $content->title("商户信息")
-            ->body(function (Row $row) use ($info, $merchantUserId, $paymentMap) {
+            ->body(function (Row $row) use ($info, $merchantUserId, $paymentMap, $canViewApiInfo) {
                 $row->column(6, function (Column $column) use ($row, $info) {
                     $form = new \Dcat\Admin\Widgets\Form();
                     $form->disableResetButton();
@@ -325,13 +330,15 @@ class UserController extends CommonController
                     $card->style("height:400px");
                     $column->row($card);
                 });
-                $row->column(6, function (Column $column) use ($row, $info) {
+                $row->column(6, function (Column $column) use ($row, $info, $canViewApiInfo) {
                     $form = new \Dcat\Admin\Widgets\Form();
                     $form->disableResetButton();
                     $form->disableSubmitButton();
                     $form->display("merchant_id", "商户ID")->default(optional($info)->merchant_user_id)->width(3, 3);
-                    $form->text("merchant_app_key", "商户API密钥")->default(bob_str_replace(optional($info)->appkey))->disable()->width(6, 3)->prepend('');
-                    $form->text("merchant_app_secect", "商户签名密钥")->default(bob_str_replace(optional($info)->appsecret))->disable()->width(6, 3)->prepend('');
+                    $appKey = (string) optional($info)->appkey;
+                    $appSecret = (string) optional($info)->appsecret;
+                    $form->text("merchant_app_key", "商户API密钥")->default($canViewApiInfo ? $appKey : bob_str_replace($appKey))->disable()->width(6, 3)->prepend('');
+                    $form->text("merchant_app_secect", "商户签名密钥")->default($canViewApiInfo ? $appSecret : bob_str_replace($appSecret))->disable()->width(6, 3)->prepend('');
                     $card = new Card("API对接信息", $form);
                     $card->withHeaderBorder();
                     $card->style("height:400px");
