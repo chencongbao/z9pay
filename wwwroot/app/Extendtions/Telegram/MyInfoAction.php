@@ -2,6 +2,7 @@
 
 namespace App\Extendtions\Telegram;
 
+use App\Models\User;
 use App\Traits\TelegramTrait;
 
 class MyInfoAction
@@ -50,8 +51,8 @@ class MyInfoAction
         }
 
         if ($groupType === 2) {
-            $userId = $this->getUserId($message);
-            $text .= "金主群：" . (!$userId ? "<b>未绑定</b>\n" : "<b>" . $this->html($this->getUserInfo($message, $groupType)) . "</b>\n");
+            $groupInfo = $this->getSponsorGroupInfo($message);
+            $text .= "金主群：" . ($groupInfo === '' ? "<b>未绑定</b>\n" : "<b>" . $this->html($groupInfo) . "</b>\n");
         }
 
         if ($groupType === 3) {
@@ -73,6 +74,24 @@ class MyInfoAction
         })->implode('');
 
         return "渠道群：<b>" . $items . "</b>\n";
+    }
+
+    private function getSponsorGroupInfo(array $message): string
+    {
+        $chatId = (int) ($message['chat']['id'] ?? 0);
+        if ($chatId >= 0) {
+            return '';
+        }
+
+        return User::query()
+            ->where('telegram_group_id', $chatId)
+            ->where('is_agent', 0)
+            ->orderBy('id')
+            ->get(['id', 'name', 'username'])
+            ->map(function (User $user) {
+                return $user->bname;
+            })
+            ->implode('、');
     }
 
     private function html($value): string

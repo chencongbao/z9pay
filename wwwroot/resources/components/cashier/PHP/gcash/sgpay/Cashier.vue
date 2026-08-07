@@ -16,7 +16,7 @@
                     </button>
 
                     <div class="scan-tip">
-                        or Log in to GCash and scan this QR with the QR Scanner.
+                        or Log in to GCash/Banks and scan this QR with the QR Scanner.
                     </div>
 
                     <div class="qr-box">
